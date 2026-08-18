@@ -111,7 +111,7 @@ function initOrderLookup() {
    제출 시 Web3Forms(https://web3forms.com)를 통해 deco_lab@naver.com으로 이메일 전송
    사용 전 아래 WEB3FORMS_ACCESS_KEY를 web3forms.com에서 발급받은 값으로 교체할 것
    -------------------------------------------------------------------------- */
-var WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+var WEB3FORMS_ACCESS_KEY = '32b626a7-ad22-4fff-aaab-3058e9a73e7d';
 
 function initConsultModal() {
   const modal = document.getElementById('consultModal');
