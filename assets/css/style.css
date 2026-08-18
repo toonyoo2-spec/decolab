@@ -1564,6 +1564,7 @@ ol {
 
   .consultation__content {
     align-items: center;
+    width: 100%;
   }
 
   /* --- FAQ --- */
