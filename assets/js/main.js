@@ -7,6 +7,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   initTabCard();
   initFaqAccordion();
+  initMobileNav();
 });
 
 /* --------------------------------------------------------------------------
@@ -31,6 +32,36 @@ function initTabCard() {
         panel.classList.toggle('is-active', panel.getAttribute('data-panel') === target);
       });
     });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   모바일 헤더: 햄버거 메뉴 토글
+   -------------------------------------------------------------------------- */
+function initMobileNav() {
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+  if (!toggle || !nav) return;
+
+  function closeNav() {
+    nav.classList.remove('is-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function () {
+    const willOpen = !nav.classList.contains('is-open');
+    nav.classList.toggle('is-open', willOpen);
+    toggle.classList.toggle('is-open', willOpen);
+    toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+  });
+
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeNav);
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 768) closeNav();
   });
 }
 
