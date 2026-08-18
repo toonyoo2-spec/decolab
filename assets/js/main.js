@@ -66,7 +66,7 @@ function initMobileNav() {
 }
 
 /* --------------------------------------------------------------------------
-   FAQ 아코디언: 클릭한 항목만 열림, 나머지는 닫힘
+   FAQ 아코디언: 항목별로 독립적으로 열고 닫힘 (다른 항목에 영향 없음)
    -------------------------------------------------------------------------- */
 function initFaqAccordion() {
   const items = document.querySelectorAll('.faq-item');
@@ -76,17 +76,9 @@ function initFaqAccordion() {
     const toggle = item.querySelector('.faq-item__toggle');
 
     question.addEventListener('click', function () {
-      const isOpen = item.classList.contains('is-open');
-
-      items.forEach(function (other) {
-        other.classList.remove('is-open');
-        other.querySelector('.faq-item__toggle').textContent = '+';
-      });
-
-      if (!isOpen) {
-        item.classList.add('is-open');
-        toggle.textContent = '–';
-      }
+      const willOpen = !item.classList.contains('is-open');
+      item.classList.toggle('is-open', willOpen);
+      toggle.textContent = willOpen ? '–' : '+';
     });
   });
 }
