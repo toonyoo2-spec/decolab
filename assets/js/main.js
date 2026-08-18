@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initTabCard();
   initFaqAccordion();
   initMobileNav();
+  initPreviewModal();
+  initOrderLookup();
 });
 
 /* --------------------------------------------------------------------------
@@ -62,6 +64,76 @@ function initMobileNav() {
 
   window.addEventListener('resize', function () {
     if (window.innerWidth > 768) closeNav();
+  });
+}
+
+/* --------------------------------------------------------------------------
+   샘플 카드 "미리보기" 팝업
+   레퍼런스 페이지가 아직 없어 실제 샘플 대신 스타일 미리보기 + 제작하기 CTA를 보여줌
+   -------------------------------------------------------------------------- */
+function initPreviewModal() {
+  const modal = document.getElementById('previewModal');
+  if (!modal) return;
+
+  const dialog = modal.querySelector('.preview-modal__dialog');
+  const imageEl = document.getElementById('previewModalImage');
+  const tagEl = document.getElementById('previewModalTag');
+  const titleEl = document.getElementById('previewModalTitle');
+  const triggers = document.querySelectorAll('.js-preview');
+  let lastFocused = null;
+
+  function openModal(trigger) {
+    const key = trigger.getAttribute('data-preview-key') || '';
+    const title = trigger.getAttribute('data-preview-title') || '';
+    const tag = trigger.getAttribute('data-preview-tag') || '';
+
+    imageEl.className = 'preview-modal__image' + (key ? ' ' + key : '');
+    tagEl.textContent = tag;
+    titleEl.textContent = title;
+
+    lastFocused = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    dialog.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal(trigger);
+    });
+  });
+
+  modal.querySelectorAll('[data-modal-close]').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+}
+
+/* --------------------------------------------------------------------------
+   주문 조회 페이지(order.html) 전용: 로그인 폼 제출 시 목업 상태 화면 표시
+   백엔드 연동 전 시안이므로 입력값 검증 없이 항상 동일한 목업 결과를 보여줌
+   -------------------------------------------------------------------------- */
+function initOrderLookup() {
+  const form = document.getElementById('orderLoginForm');
+  const result = document.getElementById('orderStatus');
+  if (!form || !result) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 

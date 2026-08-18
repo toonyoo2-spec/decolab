@@ -23,7 +23,7 @@
     <a href="#method">적용 방식</a>
     <a href="#process">제작 절차</a>
     <a href="#faq">FAQ</a>
-    <a href="#">주문 조회</a>
+    <a href="order.html">주문 조회</a>
   </nav>
   <div class="site-header__actions">
     <a href="#consultation" class="btn btn--primary btn--sm">상담 신청</a>
@@ -205,8 +205,8 @@
           </div>
           <p class="sample-card__price">300,000원~</p>
           <div class="sample-card__actions">
-            <a href="#" class="btn btn--outline">미리보기</a>
-            <a href="#" class="btn btn--primary">선택하기</a>
+            <a href="#" class="btn btn--outline js-preview" data-preview-key="restaurant" data-preview-title="정성이 배는 셰프의 한상 요리" data-preview-tag="한식당">미리보기</a>
+            <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
           </div>
         </div>
       </article>
@@ -224,8 +224,8 @@
           </div>
           <p class="sample-card__price">320,000원~</p>
           <div class="sample-card__actions">
-            <a href="#" class="btn btn--outline">미리보기</a>
-            <a href="#" class="btn btn--primary">선택하기</a>
+            <a href="#" class="btn btn--outline js-preview" data-preview-key="realestate" data-preview-title="믿음이 먼저인 부동산 중개소" data-preview-tag="부동산중개">미리보기</a>
+            <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
           </div>
         </div>
       </article>
@@ -243,8 +243,8 @@
           </div>
           <p class="sample-card__price">300,000원~</p>
           <div class="sample-card__actions">
-            <a href="#" class="btn btn--outline">미리보기</a>
-            <a href="#" class="btn btn--primary">선택하기</a>
+            <a href="https://yeinbuild.store" target="_blank" rel="noopener" class="btn btn--outline">미리보기</a>
+            <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
           </div>
         </div>
       </article>
@@ -266,8 +266,8 @@
           </div>
           <p class="sample-card__price">280,000원~</p>
           <div class="sample-card__actions">
-            <a href="#" class="btn btn--outline">미리보기</a>
-            <a href="#" class="btn btn--primary">선택하기</a>
+            <a href="#" class="btn btn--outline js-preview" data-preview-key="goods" data-preview-title="오늘 필요한 물건을 한번에" data-preview-tag="생활용품점">미리보기</a>
+            <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
           </div>
         </div>
       </article>
@@ -285,8 +285,8 @@
           </div>
           <p class="sample-card__price">320,000원~</p>
           <div class="sample-card__actions">
-            <a href="#" class="btn btn--outline">미리보기</a>
-            <a href="#" class="btn btn--primary">선택하기</a>
+            <a href="#" class="btn btn--outline js-preview" data-preview-key="logistics" data-preview-title="안정된 시스템을 위한 물류 파트너" data-preview-tag="물류·유통">미리보기</a>
+            <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
           </div>
         </div>
       </article>
@@ -304,8 +304,8 @@
           </div>
           <p class="sample-card__price">350,000원~</p>
           <div class="sample-card__actions">
-            <a href="#" class="btn btn--outline">미리보기</a>
-            <a href="#" class="btn btn--primary">선택하기</a>
+            <a href="#" class="btn btn--outline js-preview" data-preview-key="law" data-preview-title="복잡한 세무를 정확히 기업로써" data-preview-tag="법률사무소">미리보기</a>
+            <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
           </div>
         </div>
       </article>
@@ -604,7 +604,7 @@
       <div class="final-cta__actions">
         <a href="#samples" class="btn btn--light">업종별 샘플 보기 →</a>
         <a href="#process" class="btn btn--ghost-light">제작 절차 확인</a>
-        <a href="#" class="btn btn--ghost-light">내 주문 조회</a>
+        <a href="order.html" class="btn btn--ghost-light">내 주문 조회</a>
       </div>
       <p class="final-cta__disclaimer">실제 완성 화면은 선택하신 샘플과 요청사항에 따라 달라질 수 있습니다.</p>
     </div>
@@ -631,12 +631,28 @@
       <a href="#method">적용 방식</a>
       <a href="#process">제작 절차</a>
       <a href="#faq">FAQ</a>
-      <a href="#">주문 조회</a>
+      <a href="order.html">주문 조회</a>
     </nav>
   </div>
   <div class="site-footer__divider"></div>
   <p class="site-footer__bottom">본 페이지와 업종별 화면은 제작 구조를 확인하기 위한 샘플입니다.</p>
 </footer>
+
+<!-- ==================== 미리보기 팝업 (레퍼런스 페이지 준비 전 임시 화면) ==================== -->
+<div class="preview-modal" id="previewModal" aria-hidden="true">
+  <div class="preview-modal__overlay" data-modal-close></div>
+  <div class="preview-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="previewModalTitle" tabindex="-1">
+    <button class="preview-modal__close" type="button" data-modal-close aria-label="닫기">&times;</button>
+    <div class="preview-modal__image" id="previewModalImage">
+      <span class="preview-modal__tag" id="previewModalTag"></span>
+    </div>
+    <div class="preview-modal__body">
+      <h3 class="preview-modal__title" id="previewModalTitle"></h3>
+      <p class="preview-modal__note">실제 미리보기 페이지는 준비 중입니다. 선택하신 샘플과 같은 스타일·구조로 제작해드립니다.</p>
+      <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
+    </div>
+  </div>
+</div>
 
 <script src="assets/js/main.js"></script>
 </body>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>내 주문 조회 | 디자인코드랩</title>
+<meta name="description" content="주문 시 등록하신 아이디와 비밀번호로 제작 진행 상황을 확인하세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="site-header">
+  <a href="index.html" class="site-header__logo" aria-label="디자인코드랩 홈으로">
+    <img src="assets/img/logo-header.png" alt="디자인코드랩 DESIGN CODE LAB">
+  </a>
+  <nav class="site-nav" id="siteNav">
+    <a href="index.html#samples">샘플</a>
+    <a href="index.html#differentiation">차이점</a>
+    <a href="index.html#method">적용 방식</a>
+    <a href="index.html#process">제작 절차</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="order.html">주문 조회</a>
+  </nav>
+  <div class="site-header__actions">
+    <a href="index.html#consultation" class="btn btn--primary btn--sm">상담 신청</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ==================== 주문 조회 ==================== -->
+<section class="order-lookup">
+  <div class="order-lookup__intro">
+    <div class="eyebrow">
+      <span class="eyebrow__line"></span>
+      <span class="eyebrow__text">ORDER STATUS</span>
+    </div>
+    <h1 class="order-lookup__title">내 주문 조회</h1>
+    <p class="order-lookup__desc">주문 시 등록하신 아이디와 비밀번호를 입력하시면 제작 진행 상황을 확인하실 수 있습니다.</p>
+  </div>
+
+  <div class="order-login">
+    <form class="order-login__form" id="orderLoginForm">
+      <label class="order-login__field">
+        <span>아이디</span>
+        <input type="text" name="username" placeholder="아이디를 입력하세요" autocomplete="username">
+      </label>
+      <label class="order-login__field">
+        <span>비밀번호</span>
+        <input type="password" name="password" placeholder="비밀번호를 입력하세요" autocomplete="current-password">
+      </label>
+      <button type="submit" class="btn btn--primary order-login__submit">조회하기</button>
+    </form>
+    <p class="order-login__note">* 현재 준비 중인 기능입니다. 실제 주문 데이터와 연동되지 않은 시안 화면입니다.</p>
+  </div>
+
+  <!-- 조회 결과 (목업 데이터) -->
+  <div class="order-status" id="orderStatus" hidden>
+    <div class="order-status__head">
+      <div>
+        <p class="order-status__label">주문번호</p>
+        <p class="order-status__value">DCL-20260218-0142</p>
+      </div>
+      <div>
+        <p class="order-status__label">신청 샘플</p>
+        <p class="order-status__value">한식당 · 정성이 배는 셰프의 한상 요리</p>
+      </div>
+      <div>
+        <p class="order-status__label">신청일</p>
+        <p class="order-status__value">2026.02.18</p>
+      </div>
+    </div>
+
+    <div class="status-tracker">
+      <div class="status-tracker__track">
+        <div class="status-tracker__track-fill" style="width: 25%;"></div>
+      </div>
+      <div class="status-tracker__steps">
+        <div class="status-tracker__step is-done">
+          <span class="status-tracker__dot">&#10003;</span>
+          <span class="status-tracker__label">결제 완료</span>
+        </div>
+        <div class="status-tracker__step is-current">
+          <span class="status-tracker__dot">2</span>
+          <span class="status-tracker__label">제작 중</span>
+        </div>
+        <div class="status-tracker__step">
+          <span class="status-tracker__dot">3</span>
+          <span class="status-tracker__label">제작 완료</span>
+        </div>
+        <div class="status-tracker__step">
+          <span class="status-tracker__dot">4</span>
+          <span class="status-tracker__label">수정 중</span>
+        </div>
+        <div class="status-tracker__step">
+          <span class="status-tracker__dot">5</span>
+          <span class="status-tracker__label">수정 완료</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="order-status__note">현재 <strong>제작 중</strong> 단계입니다. 완료까지 평균 2~3일 소요됩니다.</p>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <span class="site-footer__mark">L</span>
+      <div>
+        <p class="site-footer__brand-name">디자인코드랩</p>
+        <p class="site-footer__brand-tagline">저비용 고효율 홈페이지 제작 서비스</p>
+      </div>
+    </div>
+    <div>
+      <p class="site-footer__desc-title">디자인코드랩</p>
+      <p class="site-footer__desc-text">검색 노출 최적화 랜딩페이지 제작</p>
+    </div>
+    <nav class="site-footer__links">
+      <a href="index.html#samples">샘플</a>
+      <a href="index.html#differentiation">차이점</a>
+      <a href="index.html#method">적용 방식</a>
+      <a href="index.html#process">제작 절차</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="order.html">주문 조회</a>
+    </nav>
+  </div>
+  <div class="site-footer__divider"></div>
+  <p class="site-footer__bottom">본 페이지와 업종별 화면은 제작 구조를 확인하기 위한 샘플입니다.</p>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
