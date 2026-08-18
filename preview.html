@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>내 주문 조회 | 디자인코드랩</title>
-<meta name="description" content="주문 시 등록하신 아이디와 비밀번호로 제작 진행 상황을 확인하세요.">
+<title>샘플 미리보기 | 디자인코드랩</title>
+<meta name="description" content="선택하신 업종 샘플의 스타일 미리보기입니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -33,78 +33,18 @@
   </div>
 </header>
 
-<!-- ==================== 주문 조회 ==================== -->
-<section class="order-lookup">
-  <div class="order-lookup__intro">
-    <div class="eyebrow">
-      <span class="eyebrow__line"></span>
-      <span class="eyebrow__text">ORDER STATUS</span>
-    </div>
-    <h1 class="order-lookup__title">내 주문 조회</h1>
-    <p class="order-lookup__desc">주문 시 등록하신 아이디와 비밀번호를 입력하시면 제작 진행 상황을 확인하실 수 있습니다.</p>
+<!-- ==================== 샘플 미리보기 ==================== -->
+<section class="preview-page">
+  <div class="preview-page__hero" id="previewHero">
+    <span class="preview-page__tag" id="previewTag"></span>
   </div>
-
-  <div class="order-login">
-    <form class="order-login__form" id="orderLoginForm">
-      <label class="order-login__field">
-        <span>아이디</span>
-        <input type="text" name="username" placeholder="아이디를 입력하세요" autocomplete="username">
-      </label>
-      <label class="order-login__field">
-        <span>비밀번호</span>
-        <input type="password" name="password" placeholder="비밀번호를 입력하세요" autocomplete="current-password">
-      </label>
-      <button type="submit" class="btn btn--primary order-login__submit">조회하기</button>
-    </form>
-    <p class="order-login__note">* 현재 준비 중인 기능입니다. 실제 주문 데이터와 연동되지 않은 시안 화면입니다.</p>
-  </div>
-
-  <!-- 조회 결과 (목업 데이터) -->
-  <div class="order-status" id="orderStatus" hidden>
-    <div class="order-status__head">
-      <div>
-        <p class="order-status__label">주문번호</p>
-        <p class="order-status__value">DCL-20260218-0142</p>
-      </div>
-      <div>
-        <p class="order-status__label">신청 샘플</p>
-        <p class="order-status__value">한식당 · 정성이 배는 셰프의 한상 요리</p>
-      </div>
-      <div>
-        <p class="order-status__label">신청일</p>
-        <p class="order-status__value">2026.02.18</p>
-      </div>
+  <div class="preview-page__body">
+    <h1 class="preview-page__title" id="previewTitle"></h1>
+    <p class="preview-page__note">실제 미리보기 페이지는 준비 중입니다. 선택하신 샘플과 같은 스타일·구조로 제작해드립니다.</p>
+    <div class="preview-page__actions">
+      <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
+      <a href="index.html#samples" class="btn btn--outline">다른 샘플 보기</a>
     </div>
-
-    <div class="status-tracker">
-      <div class="status-tracker__track">
-        <div class="status-tracker__track-fill" style="width: 25%;"></div>
-      </div>
-      <div class="status-tracker__steps">
-        <div class="status-tracker__step is-done">
-          <span class="status-tracker__dot">&#10003;</span>
-          <span class="status-tracker__label">결제 완료</span>
-        </div>
-        <div class="status-tracker__step is-current">
-          <span class="status-tracker__dot">2</span>
-          <span class="status-tracker__label">제작 중</span>
-        </div>
-        <div class="status-tracker__step">
-          <span class="status-tracker__dot">3</span>
-          <span class="status-tracker__label">제작 완료</span>
-        </div>
-        <div class="status-tracker__step">
-          <span class="status-tracker__dot">4</span>
-          <span class="status-tracker__label">수정 중</span>
-        </div>
-        <div class="status-tracker__step">
-          <span class="status-tracker__dot">5</span>
-          <span class="status-tracker__label">수정 완료</span>
-        </div>
-      </div>
-    </div>
-
-    <p class="order-status__note">현재 <strong>제작 중</strong> 단계입니다. 완료까지 평균 2~3일 소요됩니다.</p>
   </div>
 </section>
 
