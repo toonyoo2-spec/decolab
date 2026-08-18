@@ -57,7 +57,10 @@
 
   /* Layout */
   --container-max: 1440px;
+  --content-max: 1280px;
   --container-padding: 80px;
+  /* 뷰포트가 1440px보다 넓어지면 콘텐츠는 1280px에서 멈추고 좌우 여백만 늘어남 */
+  --side-pad: max(80px, calc((100% - var(--content-max)) / 2));
 }
 
 /* --------------------------------------------------------------------------
@@ -219,7 +222,7 @@ ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 80px;
+  padding: 20px var(--side-pad);
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
@@ -294,7 +297,7 @@ ol {
   display: flex;
   gap: 64px;
   align-items: center;
-  padding: 96px 80px;
+  padding: 96px var(--side-pad);
   background: var(--color-bg);
 }
 
@@ -391,13 +394,15 @@ ol {
 
 .tab-card__nav-btn {
   width: 100%;
-  padding: 14px 6px;
+  padding: 14px 3px;
   border-radius: 12px;
   border: 1px dashed var(--color-border);
   font-weight: 700;
   font-size: 12px;
   text-align: center;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--color-text-primary);
   background: transparent;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
@@ -533,7 +538,7 @@ ol {
    SAMPLES SECTION
    ========================================================================== */
 .samples {
-  padding: 45px 80px;
+  padding: 45px var(--side-pad);
   background: var(--color-bg-alt);
   display: flex;
   flex-direction: column;
@@ -691,7 +696,7 @@ ol {
    DIFFERENTIATION SECTION (dark)
    ========================================================================== */
 .differentiation {
-  padding: 45px 80px;
+  padding: 45px var(--side-pad);
   background: var(--color-dark-bg);
   display: flex;
   flex-direction: column;
@@ -840,7 +845,7 @@ ol {
    APPLICATION METHOD SECTION
    ========================================================================== */
 .method {
-  padding: 50px 80px;
+  padding: 50px var(--side-pad);
   background: var(--color-bg);
   display: flex;
   flex-direction: column;
@@ -931,7 +936,7 @@ ol {
    PROCESS SECTION (dark)
    ========================================================================== */
 .process {
-  padding: 50px 80px;
+  padding: 50px var(--side-pad);
   background: var(--color-dark-bg);
   display: flex;
   gap: 80px;
@@ -1001,7 +1006,7 @@ ol {
    CONSULTATION SECTION
    ========================================================================== */
 .consultation {
-  padding: 40px 80px;
+  padding: 40px var(--side-pad);
   background: var(--color-bg);
 }
 
@@ -1048,7 +1053,7 @@ ol {
    FAQ SECTION
    ========================================================================== */
 .faq {
-  padding: 50px 80px;
+  padding: 50px var(--side-pad);
   background: var(--color-bg);
   display: flex;
   gap: 80px;
@@ -1151,7 +1156,7 @@ ol {
    FINAL CTA
    ========================================================================== */
 .final-cta {
-  padding: 40px 80px;
+  padding: 40px var(--side-pad);
   background: var(--color-bg);
 }
 
@@ -1235,7 +1240,7 @@ ol {
    FOOTER
    ========================================================================== */
 .site-footer {
-  padding: 48px 80px 32px;
+  padding: 48px var(--side-pad) 32px;
   background: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
   display: flex;
