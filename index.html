@@ -243,7 +243,7 @@
           </div>
           <p class="sample-card__price">300,000원~</p>
           <div class="sample-card__actions">
-            <a href="https://yeinbuild.store" target="_blank" rel="noopener" class="btn btn--outline">미리보기</a>
+            <a href="https://yeinbuild.store" target="_blank" rel="noopener" class="btn btn--outline js-site-preview" data-site-url="https://yeinbuild.store" data-site-title="예인건설산업 (인테리어 전문가 샘플)">미리보기</a>
             <a href="https://smartstore.naver.com/designcodelab/products/13725448695" target="_blank" rel="noopener" class="btn btn--primary">제작하기</a>
           </div>
         </div>
@@ -665,6 +665,19 @@
       <button type="submit" class="btn btn--primary consult-modal__submit">문의 보내기</button>
       <p class="consult-modal__status" id="consultFormStatus" role="status" aria-live="polite"></p>
     </form>
+  </div>
+</div>
+
+<!-- ==================== 실제 사이트 미리보기 팝업 ==================== -->
+<div class="site-modal" id="siteModal" aria-hidden="true">
+  <div class="site-modal__overlay" data-site-close></div>
+  <div class="site-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="siteModalTitle" tabindex="-1">
+    <div class="site-modal__bar">
+      <span class="site-modal__title" id="siteModalTitle">샘플 미리보기</span>
+      <a href="#" target="_blank" rel="noopener" class="site-modal__external">새 탭에서 열기 ↗</a>
+      <button class="site-modal__close" type="button" data-site-close aria-label="닫기">&times;</button>
+    </div>
+    <iframe class="site-modal__frame" id="siteModalFrame" src="" title="샘플 미리보기" loading="lazy"></iframe>
   </div>
 </div>
 

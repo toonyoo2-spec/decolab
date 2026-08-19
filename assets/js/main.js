@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initPreviewPage();
   initOrderLookup();
   initConsultModal();
+  initSiteModal();
 });
 
 /* --------------------------------------------------------------------------
@@ -103,6 +104,58 @@ function initOrderLookup() {
     e.preventDefault();
     result.hidden = false;
     result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   실제 사이트 미리보기 팝업: iframe으로 레퍼런스 사이트를 페이지 이탈 없이 표시
+   -------------------------------------------------------------------------- */
+function initSiteModal() {
+  const modal = document.getElementById('siteModal');
+  if (!modal) return;
+
+  const dialog = modal.querySelector('.site-modal__dialog');
+  const frame = document.getElementById('siteModalFrame');
+  const titleEl = document.getElementById('siteModalTitle');
+  const externalLink = modal.querySelector('.site-modal__external');
+  const triggers = document.querySelectorAll('.js-site-preview');
+  let lastFocused = null;
+
+  function openModal(trigger) {
+    const url = trigger.getAttribute('data-site-url');
+    const title = trigger.getAttribute('data-site-title') || '샘플 미리보기';
+    frame.src = url;
+    titleEl.textContent = title;
+    externalLink.href = url;
+
+    lastFocused = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    dialog.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    frame.src = 'about:blank';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal(trigger);
+    });
+  });
+
+  modal.querySelectorAll('[data-site-close]').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
   });
 }
 
