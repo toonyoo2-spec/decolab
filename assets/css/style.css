@@ -641,7 +641,11 @@ ol {
 
 .sample-card--restaurant .sample-card__image { background: linear-gradient(90deg, #c97c4c, #8b4a2b); }
 .sample-card--realestate .sample-card__image { background: linear-gradient(90deg, #d9c7b0, #a8927e); }
-.sample-card--interior .sample-card__image   { background: linear-gradient(90deg, #8b6f5c, #4a3b32); }
+.sample-card--waterproof .sample-card__image {
+  background-image: url('../img/sample-waterproofing.jpg');
+  background-size: cover;
+  background-position: center 30%;
+}
 .sample-card--goods .sample-card__image      { background: linear-gradient(90deg, #e8cfc2, #c99a8e); }
 .sample-card--logistics .sample-card__image  { background: linear-gradient(90deg, #5c463a, #2e2420); }
 .sample-card--law .sample-card__image        { background: linear-gradient(90deg, #4a3f38, #1d1a17); }
@@ -1858,6 +1862,29 @@ ol {
 
   .tab-card {
     width: 100%;
+    flex-direction: column;
+  }
+
+  .tab-card__nav {
+    flex-direction: row;
+    width: 100%;
+    gap: 8px;
+    padding: 16px;
+    overflow-x: auto;
+  }
+
+  .tab-card__nav-btn {
+    width: auto;
+    flex: 0 0 auto;
+    padding: 10px 14px;
+  }
+
+  .tab-card__panels {
+    padding: 8px 16px 24px;
+  }
+
+  .feature-grid__row {
+    flex-direction: column;
   }
 }
 
@@ -1935,32 +1962,6 @@ ol {
   .hero__stats {
     flex-wrap: wrap;
     row-gap: 12px;
-  }
-
-  .tab-card {
-    flex-direction: column;
-  }
-
-  .tab-card__nav {
-    flex-direction: row;
-    width: 100%;
-    gap: 8px;
-    padding: 16px;
-    overflow-x: auto;
-  }
-
-  .tab-card__nav-btn {
-    width: auto;
-    flex: 0 0 auto;
-    padding: 10px 14px;
-  }
-
-  .tab-card__panels {
-    padding: 8px 16px 24px;
-  }
-
-  .feature-grid__row {
-    flex-direction: column;
   }
 
   /* --- 섹션 타이틀 축소 --- */
